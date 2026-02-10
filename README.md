@@ -9,6 +9,5 @@ Bulma (подключение через CDN)
 ## Формат отчёта
 - Ссылка на GitHub Pages
 - Скриншот карты сайта (Mind Map)
-- Чек-лист самопроверки
 
-## Ссылка на GitHub Pages
+[Ссылка на GitHub Pages](https://masckosho.github.io/FitMeal/)
