@@ -10,4 +10,4 @@ Bulma (подключение через CDN)
 - Ссылка на GitHub Pages
 - Скриншот карты сайта (Mind Map)
 
-## [Ссылка на GitHub Pages](https://masckosho.github.io/FitMeal/)
+[Ссылка на GitHub Pages](https://masckosho.github.io/FitMeal/)
