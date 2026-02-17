@@ -9,56 +9,52 @@
 
   <style>
     :root{
-      /* Viridis palette */
-      --v0:#007043; /* deep purple */
-      --v1:#3b8b70; /* blue-purple */
-      --v2:#21918c; /* teal */
-      --v3:#448e46; /* green */
-      --v4:#79b729; /* yellow accent */
+      /* VIRIDIS */
+      --v0:#090154; --v1:#3b528b; --v2:#21918c; --v3:#5ec962; --v4:#5ba849;
 
       --text:#111827;
-      --textOnDark:#ffffff;
-      --muted:#e9eef7;
+      --muted:#6b7280;
       --radius:22px;
     }
-
-    html { scroll-behavior:smooth; }
-    body { color:var(--text); background:#f6f7fb; }
+    html{scroll-behavior:smooth;}
+    body{background:#f6f7fb; color:var(--text);}
 
     /* NAV */
-    .navbar.is-viridis { background: var(--v0); }
+    .navbar.is-viridis{background:var(--v0);}
     .navbar.is-viridis .navbar-item,
     .navbar.is-viridis .navbar-link,
-    .navbar.is-viridis .navbar-brand strong { color: var(--textOnDark); }
-    .navbar.is-viridis .navbar-item:hover { background: rgba(255,255,255,.08); color: var(--textOnDark); }
-    .navbar.is-viridis .navbar-burger span { background: #fff; }
-    .navbar.is-viridis .navbar-item.is-active { background: rgba(255,255,255,.12); color:#fff; }
+    .navbar.is-viridis strong{color:#fff;}
+    .navbar.is-viridis .navbar-item:hover{background:rgba(255,255,255,.08); color:#fff;}
+    .navbar.is-viridis .navbar-burger span{background:#fff;}
+    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.15);}
 
-    /* Buttons (Bulma override) */
-    .button.is-success { background: var(--v2); border-color: transparent; }
-    .button.is-success:hover { background: #1b7f7b; }
-    .button.is-success.is-light { background: rgba(33,145,140,.16); color:#0b2b2a; border-color: transparent; }
+    /* Buttons */
+    .button.is-success{background:var(--v2); border-color:transparent;}
+    .button.is-success:hover{background:#1b7f7b;}
+    .button.is-success.is-light{background:rgba(33,145,140,.18); color:#0b2b2a; border-color:transparent;}
 
     /* Sections */
-    .hero-band { background: #ffffff; }
-    .about-band { background: var(--v2); color: var(--textOnDark); }
-    .plans-band { background: var(--v3); }
-    .reviews-band { background: var(--v1); color: var(--textOnDark); }
-    .cta-band { background: var(--v4); }
+    .section-teal{background:var(--v2); color:#fff;}
+    .section-green{background:var(--v3);}
+    .section-purple{background:var(--v1); color:#fff;}
+    .section-yellow{background:var(--v4);}
 
-    .round { border-radius: var(--radius); }
-    .about-media { background: rgba(0,0,0,.25); border-radius: var(--radius); min-height: 220px; }
+    .round{border-radius:var(--radius);}
+    .soft-hr{background:rgba(17,24,39,.35); height:2px; border:0;}
 
-    /* Ad card (like your MIRO banner) */
+    /* media placeholder */
+    .about-media{background:rgba(0,0,0,.25); border-radius:var(--radius); min-height:220px;}
+
+    /* ad banner */
     .subscription-ad{
-      background: var(--v1);
-      border-radius: 32px;
-      min-height: 260px;
-      padding: 24px;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
-      overflow: hidden;
+      background:var(--v1);
+      border-radius:32px;
+      min-height:260px;
+      padding:24px;
+      display:flex;
+      align-items:flex-end;
+      position:relative;
+      overflow:hidden;
     }
     .subscription-ad::after{
       content:"";
@@ -68,11 +64,9 @@
       bottom:14%;
       height:56px;
       border-radius:18px;
-      background: rgba(255,255,255,.18);
+      background:rgba(255,255,255,.18);
     }
-
-    .on-dark { color: rgba(255,255,255,.92); }
-    .soft-hr { background: rgba(17,24,39,.35); height:2px; border:0; }
+    .on-dark{color:rgba(255,255,255,.92);}
   </style>
 </head>
 
@@ -99,12 +93,12 @@
   </nav>
 
   <!-- HERO -->
-  <section class="section hero-band">
+  <section class="section">
     <div class="container">
       <div class="columns is-vcentered is-variable is-6">
         <div class="column is-6">
           <h1 class="title is-1 mb-4">Здоровое питание<br>с доставкой</h1>
-          <p class="subtitle is-5 has-text-grey-dark">
+          <p class="subtitle is-5" style="color:var(--muted);">
             Рационы на день и неделю. Мы готовим — вы экономите время.
           </p>
 
@@ -122,41 +116,37 @@
                 5 приёмов пищи в день · 1600–2000 ккал<br>
                 Подходит для поддержания формы
               </p>
-              <a href="faq.html" class="button is-light is-rounded is-fullwidth">
-                Подробнее
-              </a>
+              <a class="button is-light is-rounded is-fullwidth" href="contacts.html#form">Оформить</a>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="section about-band">
+  <section class="section section-teal">
     <div class="container">
       <div class="columns is-vcentered is-variable is-6">
         <div class="column is-6">
           <h2 class="title is-2 has-text-white">О сервисе</h2>
           <p class="on-dark">
             Готовим из свежих продуктов и доставляем каждый день.
-            Можно выбрать рацион по цели и калорийности.
+            Выбирайте рацион по цели и калорийности.
           </p>
         </div>
-
         <div class="column is-6">
-          <div class="about-media" aria-label="Фото/видео (заглушка)"></div>
+          <div class="about-media" aria-label="Медиа (заглушка)"></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PLANS -->
-  <section class="section plans-band">
+  <section class="section section-green">
     <div class="container">
       <h2 class="title is-3 mb-5">Рационы</h2>
-      <p class="subtitle is-6">Выберите план и оставьте заявку.</p>
+      <p class="subtitle is-6">Выберите план и оставьте заявку на странице контактов.</p>
 
       <div class="columns is-variable is-4">
         <div class="column">
@@ -166,7 +156,6 @@
             <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
           </div>
         </div>
-
         <div class="column">
           <div class="box round">
             <p class="title is-5">Фитнес</p>
@@ -174,7 +163,6 @@
             <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
           </div>
         </div>
-
         <div class="column">
           <div class="box round">
             <p class="title is-5">Веган</p>
@@ -182,7 +170,6 @@
             <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
           </div>
         </div>
-
         <div class="column">
           <div class="box round">
             <p class="title is-5">Кето</p>
@@ -195,7 +182,7 @@
   </section>
 
   <!-- REVIEWS -->
-  <section class="section reviews-band">
+  <section class="section section-purple">
     <div class="container">
       <h2 class="title is-3 has-text-white mb-5">Отзывы</h2>
 
@@ -224,28 +211,23 @@
     </div>
   </section>
 
-  <!-- CTA / FOOTER -->
-  <section class="section cta-band">
+  <!-- FOOTER -->
+  <section class="section section-yellow">
     <div class="container">
       <div class="columns is-vcentered is-variable is-6">
         <div class="column is-6">
-          <h2 class="title is-3">Заказать звонок</h2>
-          <p class="has-text-grey-dark">
-            Оставьте контакты — мы поможем выбрать рацион и время доставки.
-          </p>
+          <h2 class="title is-3">Свяжитесь с нами</h2>
+          <p class="has-text-grey-dark">Заполните форму — мы поможем подобрать рацион.</p>
         </div>
 
         <div class="column is-6">
           <div class="box round">
-            <p class="title is-6">Быстрая навигация</p>
-            <div class="buttons">
-              <a class="button is-success" href="contacts.html#form">Форма</a>
-              <a class="button is-success is-light" href="faq.html">FAQ</a>
-            </div>
-            <p class="has-text-grey-dark mt-3">
-              Тел: +7 (900) 000-00-00<br>
-              Email: hello@fitmeal.ru
-            </p>
+            <p class="title is-6">Контакты</p>
+            <p class="has-text-grey-dark">Тел: +7 (900) 000-00-00</p>
+            <p class="has-text-grey-dark">Email: hello@fitmeal.ru</p>
+            <a class="button is-success is-fullwidth" href="contacts.html#form" style="margin-top:10px;">
+              Перейти к форме
+            </a>
           </div>
         </div>
       </div>

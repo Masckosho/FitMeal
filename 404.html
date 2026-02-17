@@ -8,15 +8,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 
   <style>
-    :root{
-      --v0:#440154; --v1:#3b528b; --v2:#21918c; --v4:#fde725;
-      --text:#111827; --radius:22px;
-    }
-    body{background:#f6f7fb; color:var(--text);}
+    :root{ --v1:#3b528b; --v2:#21918c; --v4:#fde725; --radius:22px; }
+    body{background:#f6f7fb;}
     .card404{border-radius:var(--radius);}
     .top{background:var(--v1); color:#fff;}
-    .top .title, .top .subtitle{color:#fff;}
-
+    .top .title,.top .subtitle{color:#fff;}
     .button.is-success{background:var(--v2); border-color:transparent;}
     .button.is-success:hover{background:#1b7f7b;}
     .button.is-warning{background:var(--v4); border-color:transparent; color:#1f2937;}
@@ -26,8 +22,8 @@
 <body>
   <section class="section top">
     <div class="container">
-      <h1 class="title is-2">Страница не найдена</h1>
-      <p class="subtitle is-6">Ошибка 404</p>
+      <h1 class="title is-2">Ошибка 404</h1>
+      <p class="subtitle is-6">Страница не найдена</p>
     </div>
   </section>
 
@@ -36,14 +32,15 @@
       <div class="box card404">
         <h2 class="title is-1">404</h2>
         <p class="subtitle is-4">Такой страницы нет</p>
-
-        <p class="mb-5">
-          Возможно, ссылка устарела или вы ошиблись в адресе.
-          Перейдите на нужную страницу кнопками ниже.
-        </p>
+        <p class="mb-5">Перейдите на нужную страницу кнопками ниже.</p>
 
         <div class="buttons">
           <a class="button is-success" href="index.html">На главную</a>
           <a class="button is-success is-light" href="contacts.html">Контакты</a>
           <a class="button is-warning" href="faq.html">FAQ</a>
         </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

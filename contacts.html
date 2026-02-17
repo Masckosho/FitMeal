@@ -13,21 +13,21 @@
       --text:#111827; --radius:22px;
     }
     html{scroll-behavior:smooth;}
-    body{color:var(--text); background:#f6f7fb;}
+    body{background:#f6f7fb; color:var(--text);}
     .round{border-radius:var(--radius);}
 
     .navbar.is-viridis{background:var(--v0);}
     .navbar.is-viridis .navbar-item, .navbar.is-viridis strong{color:#fff;}
     .navbar.is-viridis .navbar-item:hover{background:rgba(255,255,255,.08); color:#fff;}
     .navbar.is-viridis .navbar-burger span{background:#fff;}
-    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.12);}
+    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.15);}
 
     .button.is-success{background:var(--v2); border-color:transparent;}
     .button.is-success:hover{background:#1b7f7b;}
-    .button.is-success.is-light{background:rgba(33,145,140,.16); color:#0b2b2a; border-color:transparent;}
+    .button.is-success.is-light{background:rgba(33,145,140,.18); color:#0b2b2a; border-color:transparent;}
 
-    .top-band{background:var(--v3);}
-    .cta-band{background:var(--v4);}
+    .section-green{background:var(--v3);}
+    .section-yellow{background:var(--v4);}
     .soft-hr{background:rgba(17,24,39,.35); height:2px; border:0;}
   </style>
 </head>
@@ -52,60 +52,53 @@
     </div>
   </nav>
 
-  <section class="section top-band">
+  <section class="section section-green">
     <div class="container">
       <h1 class="title is-2">Контакты и обратная связь</h1>
-      <p class="subtitle is-6">Задайте вопрос или оставьте заявку — мы ответим.</p>
+      <p class="subtitle is-6">Заполните форму — мы ответим и поможем выбрать рацион.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <div class="columns is-variable is-6">
+
         <div class="column is-6">
           <div class="box round" id="form">
             <h2 class="title is-4">Форма обращения</h2>
 
-            <form onsubmit="return false;">
+            <form id="feedbackForm" novalidate>
               <div class="field">
-                <label class="label">Имя</label>
+                <label class="label">ФИО</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="Ваше имя" required>
+                  <input id="fullname" class="input" type="text" placeholder="Иванов Иван">
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Телефон</label>
+                <div class="control">
+                  <input id="phone" class="input" type="tel" placeholder="+7 999 123-45-67">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Email</label>
                 <div class="control">
-                  <input class="input" type="email" placeholder="example@email.com" required>
-                </div>
-              </div>
-
-              <div class="field">
-                <label class="label">Тема</label>
-                <div class="control">
-                  <div class="select is-fullwidth">
-                    <select required>
-                      <option value="" disabled selected>Выберите тему</option>
-                      <option>Вопрос</option>
-                      <option>Предложение</option>
-                      <option>Жалоба</option>
-                      <option>Благодарность</option>
-                    </select>
-                  </div>
+                  <input id="email" class="input" type="email" placeholder="example@email.com">
                 </div>
               </div>
 
               <div class="field">
                 <label class="label">Сообщение</label>
                 <div class="control">
-                  <textarea class="textarea" rows="5" placeholder="Напишите сообщение..." required></textarea>
+                  <textarea id="message" class="textarea" rows="5" placeholder="Напишите сообщение..."></textarea>
                 </div>
               </div>
 
               <div class="field">
                 <label class="checkbox">
-                  <input type="checkbox" required>
+                  <input id="agreement" type="checkbox">
                   Соглашаюсь на обработку персональных данных
                 </label>
               </div>
@@ -113,9 +106,9 @@
               <div class="field">
                 <button class="button is-success is-fullwidth" type="submit">Отправить</button>
               </div>
-            </form>
 
-            <p class="is-size-7 has-text-grey-dark mt-3">Учебная форма (без реальной отправки).</p>
+              <p class="is-size-7 has-text-grey-dark mt-3">Учебная форма (без реальной отправки).</p>
+            </form>
           </div>
         </div>
 
@@ -125,7 +118,6 @@
             <p><strong>Адрес:</strong> Москва, ул. Примерная, 123</p>
             <p><strong>Телефон:</strong> +7 (900) 000-00-00</p>
             <p><strong>Email:</strong> hello@fitmeal.ru</p>
-            <p><strong>Соцсети:</strong> VK · Telegram · Instagram</p>
 
             <hr>
 
@@ -141,11 +133,12 @@
             <a class="button is-success is-light is-fullwidth" href="faq.html">Перейти в FAQ</a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <section class="section cta-band">
+  <section class="section section-yellow">
     <div class="container">
       <hr class="soft-hr">
       <p class="is-size-7 has-text-grey-dark">
@@ -165,5 +158,8 @@
       });
     });
   </script>
+
+  <script src="scripts/validation.js"></script>
+  <script src="scripts/consoleLogger.js"></script>
 </body>
 </html>

@@ -9,36 +9,35 @@
 
   <style>
     :root{
-      --v0:#440154; --v1:#3b528b; --v2:#21918c; --v3:#5ec962; --v4:#fde725;
+      --v0:#440154; --v1:#3b528b; --v2:#21918c; --v4:#fde725;
       --text:#111827; --radius:22px;
     }
-    html{scroll-behavior:smooth;}
-    body{color:var(--text); background:#f6f7fb;}
+    body{background:#f6f7fb; color:var(--text);}
     .round{border-radius:var(--radius);}
 
     .navbar.is-viridis{background:var(--v0);}
     .navbar.is-viridis .navbar-item, .navbar.is-viridis strong{color:#fff;}
     .navbar.is-viridis .navbar-item:hover{background:rgba(255,255,255,.08); color:#fff;}
     .navbar.is-viridis .navbar-burger span{background:#fff;}
-    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.12);}
+    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.15);}
 
     .button.is-success{background:var(--v2); border-color:transparent;}
     .button.is-success:hover{background:#1b7f7b;}
-    .button.is-success.is-light{background:rgba(33,145,140,.16); color:#0b2b2a; border-color:transparent;}
+    .button.is-success.is-light{background:rgba(33,145,140,.18); color:#0b2b2a; border-color:transparent;}
 
-    .top-band{background:var(--v1); color:#fff;}
-    .top-band .title, .top-band .subtitle{color:#fff;}
+    .top{background:var(--v1); color:#fff;}
+    .top .title,.top .subtitle{color:#fff;}
 
     details{background:#fff; border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:14px;}
-    details + details{margin-top:12px;}
+    details+details{margin-top:12px;}
     summary{cursor:pointer; font-weight:800;}
-    .cta-band{background:var(--v4);}
-    .soft-hr{background:rgba(17,24,39,.35); height:2px; border:0;}
+
+    .footer{background:var(--v4);}
   </style>
 </head>
 
 <body>
-  <nav class="navbar is-viridis" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-viridis">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="index.html"><strong>FitMeal</strong></a>
@@ -57,10 +56,10 @@
     </div>
   </nav>
 
-  <section class="section top-band">
+  <section class="section top">
     <div class="container">
       <h1 class="title is-2">FAQ</h1>
-      <p class="subtitle is-6">Ответы на частые вопросы о рационах и доставке.</p>
+      <p class="subtitle is-6">Ответы на частые вопросы о доставке и рационах.</p>
     </div>
   </section>
 
@@ -74,22 +73,17 @@
 
         <details>
           <summary>Как часто обновляется меню?</summary>
-          <p class="mt-3">Меню обновляется еженедельно, чтобы блюда не надоедали.</p>
+          <p class="mt-3">Меню обновляется еженедельно.</p>
         </details>
 
         <details>
-          <summary>Можно ли указать пожелания к продуктам?</summary>
-          <p class="mt-3">Да, напишите пожелания в поле «Сообщение» в форме.</p>
+          <summary>Можно ли исключить ингредиенты?</summary>
+          <p class="mt-3">Да, напишите пожелания в поле «Сообщение».</p>
         </details>
 
         <details>
           <summary>Как происходит доставка?</summary>
           <p class="mt-3">Доставляем утром или вечером — время согласуем при звонке.</p>
-        </details>
-
-        <details>
-          <summary>Что делать, если страница не открывается?</summary>
-          <p class="mt-3">Откройте «Главная» или «Контакты». Для примера есть страница 404.</p>
         </details>
 
         <div class="buttons mt-4">
@@ -101,9 +95,8 @@
     </div>
   </section>
 
-  <section class="section cta-band">
+  <section class="section footer">
     <div class="container">
-      <hr class="soft-hr">
       <p class="is-size-7 has-text-grey-dark">
         <strong>FitMeal</strong> · <a href="index.html">Главная</a> · <a href="contacts.html">Контакты</a> · <a href="faq.html">FAQ</a>
       </p>
