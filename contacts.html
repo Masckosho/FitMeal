@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitMeal — Контакты</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+  <style>
+    :root{
+      --v0:#440154; --v1:#3b528b; --v2:#21918c; --v3:#5ec962; --v4:#fde725;
+      --text:#111827; --radius:22px;
+    }
+    html{scroll-behavior:smooth;}
+    body{color:var(--text); background:#f6f7fb;}
+    .round{border-radius:var(--radius);}
+
+    .navbar.is-viridis{background:var(--v0);}
+    .navbar.is-viridis .navbar-item, .navbar.is-viridis strong{color:#fff;}
+    .navbar.is-viridis .navbar-item:hover{background:rgba(255,255,255,.08); color:#fff;}
+    .navbar.is-viridis .navbar-burger span{background:#fff;}
+    .navbar.is-viridis .navbar-item.is-active{background:rgba(255,255,255,.12);}
+
+    .button.is-success{background:var(--v2); border-color:transparent;}
+    .button.is-success:hover{background:#1b7f7b;}
+    .button.is-success.is-light{background:rgba(33,145,140,.16); color:#0b2b2a; border-color:transparent;}
+
+    .top-band{background:var(--v3);}
+    .cta-band{background:var(--v4);}
+    .soft-hr{background:rgba(17,24,39,.35); height:2px; border:0;}
+  </style>
+</head>
+
+<body>
+  <nav class="navbar is-viridis" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"><strong>FitMeal</strong></a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="index.html">Главная</a>
+          <a class="navbar-item is-active" href="contacts.html">Контакты</a>
+          <a class="navbar-item" href="faq.html">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section top-band">
+    <div class="container">
+      <h1 class="title is-2">Контакты и обратная связь</h1>
+      <p class="subtitle is-6">Задайте вопрос или оставьте заявку — мы ответим.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-variable is-6">
+        <div class="column is-6">
+          <div class="box round" id="form">
+            <h2 class="title is-4">Форма обращения</h2>
+
+            <form onsubmit="return false;">
+              <div class="field">
+                <label class="label">Имя</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Ваше имя" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                  <input class="input" type="email" placeholder="example@email.com" required>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Тема</label>
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select required>
+                      <option value="" disabled selected>Выберите тему</option>
+                      <option>Вопрос</option>
+                      <option>Предложение</option>
+                      <option>Жалоба</option>
+                      <option>Благодарность</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Сообщение</label>
+                <div class="control">
+                  <textarea class="textarea" rows="5" placeholder="Напишите сообщение..." required></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="checkbox">
+                  <input type="checkbox" required>
+                  Соглашаюсь на обработку персональных данных
+                </label>
+              </div>
+
+              <div class="field">
+                <button class="button is-success is-fullwidth" type="submit">Отправить</button>
+              </div>
+            </form>
+
+            <p class="is-size-7 has-text-grey-dark mt-3">Учебная форма (без реальной отправки).</p>
+          </div>
+        </div>
+
+        <div class="column is-6">
+          <div class="box round">
+            <h3 class="title is-4">Контакты</h3>
+            <p><strong>Адрес:</strong> Москва, ул. Примерная, 123</p>
+            <p><strong>Телефон:</strong> +7 (900) 000-00-00</p>
+            <p><strong>Email:</strong> hello@fitmeal.ru</p>
+            <p><strong>Соцсети:</strong> VK · Telegram · Instagram</p>
+
+            <hr>
+
+            <h3 class="title is-5" id="reviews">Отзывы</h3>
+            <div class="content">
+              <ul>
+                <li><strong>Алина:</strong> «Вкусно и удобно, экономит время.»</li>
+                <li><strong>Илья:</strong> «Доставка вовремя, меню разнообразное.»</li>
+                <li><strong>Мария:</strong> «Состав понятный, всё свежее.»</li>
+              </ul>
+            </div>
+
+            <a class="button is-success is-light is-fullwidth" href="faq.html">Перейти в FAQ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="container">
+      <hr class="soft-hr">
+      <p class="is-size-7 has-text-grey-dark">
+        <strong>FitMeal</strong> · <a href="index.html">Главная</a> · <a href="contacts.html">Контакты</a> · <a href="faq.html">FAQ</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.querySelector(".navbar-burger");
+      const menu = document.getElementById(burger?.dataset.target);
+      if (!burger || !menu) return;
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("is-active");
+        menu.classList.toggle("is-active");
+      });
+    });
+  </script>
+</body>
+</html>

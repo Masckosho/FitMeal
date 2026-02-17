@@ -3,32 +3,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Здоровое питание с доставкой</title>
+  <title>FitMeal — доставка здорового питания</title>
 
-  <!-- Bulma -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
 
   <style>
-    html { scroll-behavior: smooth; }
+    :root{
+      /* Viridis palette */
+      --v0:#007043; /* deep purple */
+      --v1:#3b8b70; /* blue-purple */
+      --v2:#21918c; /* teal */
+      --v3:#448e46; /* green */
+      --v4:#79b729; /* yellow accent */
 
-    /* ВОЗВРАЩАЕМ СТАРУЮ ПАЛИТРУ (как было) */
-    .about-dark  { background: #5a5a5a; }
-    .plans-strip { background: #7fb89a; }
-    .reviews-strip { background: #3f8d66; }
-    .footer-cta  { background: #6bbd86; }
+      --text:#111827;
+      --textOnDark:#ffffff;
+      --muted:#e9eef7;
+      --radius:22px;
+    }
 
-    /* Заглушки-блоки */
-    .about-media { background: #2f2f2f; border-radius: 20px; min-height: 220px; }
+    html { scroll-behavior:smooth; }
+    body { color:var(--text); background:#f6f7fb; }
 
-    /* Баннер подписки (как в твоём макете) */
+    /* NAV */
+    .navbar.is-viridis { background: var(--v0); }
+    .navbar.is-viridis .navbar-item,
+    .navbar.is-viridis .navbar-link,
+    .navbar.is-viridis .navbar-brand strong { color: var(--textOnDark); }
+    .navbar.is-viridis .navbar-item:hover { background: rgba(255,255,255,.08); color: var(--textOnDark); }
+    .navbar.is-viridis .navbar-burger span { background: #fff; }
+    .navbar.is-viridis .navbar-item.is-active { background: rgba(255,255,255,.12); color:#fff; }
+
+    /* Buttons (Bulma override) */
+    .button.is-success { background: var(--v2); border-color: transparent; }
+    .button.is-success:hover { background: #1b7f7b; }
+    .button.is-success.is-light { background: rgba(33,145,140,.16); color:#0b2b2a; border-color: transparent; }
+
+    /* Sections */
+    .hero-band { background: #ffffff; }
+    .about-band { background: var(--v2); color: var(--textOnDark); }
+    .plans-band { background: var(--v3); }
+    .reviews-band { background: var(--v1); color: var(--textOnDark); }
+    .cta-band { background: var(--v4); }
+
+    .round { border-radius: var(--radius); }
+    .about-media { background: rgba(0,0,0,.25); border-radius: var(--radius); min-height: 220px; }
+
+    /* Ad card (like your MIRO banner) */
     .subscription-ad{
-      background:#3f8d66;
-      border-radius:32px;
-      min-height:260px;
-      padding:24px;
-      display:flex;
-      align-items:flex-end;
-      position:relative;
+      background: var(--v1);
+      border-radius: 32px;
+      min-height: 260px;
+      padding: 24px;
+      display: flex;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
     }
     .subscription-ad::after{
       content:"";
@@ -38,241 +68,205 @@
       bottom:14%;
       height:56px;
       border-radius:18px;
-      background: rgba(255,255,255,.25);
+      background: rgba(255,255,255,.18);
     }
 
-    /* ТОЛЬКО ТЕКСТ: делаем контрастным и читаемым */
-    body { color:#111827; } /* основной текст */
-    .on-dark-title { color:#ffffff; }
-    .on-dark-text  { color: rgba(255,255,255,.92); }
-
-    /* На зелёных/светлых секциях текст делаем тёмным */
-    .plans-strip, .footer-cta { color:#0b1f14; }
-    .plans-strip .title, .footer-cta .title { color:#0b1f14; }
-    .plans-strip .subtitle, .footer-cta p { color: rgba(11,31,20,.85); }
-
-    /* На зелёной тёмной секции отзывов — белый текст */
-    .reviews-strip { color:#ffffff; }
-    .reviews-strip .title { color:#ffffff; }
-    .reviews-strip p { color: rgba(255,255,255,.92); }
-
-    /* Внутри box всегда чёрный текст по умолчанию (Bulma) — оставляем */
-    .round { border-radius: 22px; }
-
-    /* Разделитель внизу на зелёном фоне */
-    .soft-hr { background: rgba(17,24,39,.35); height: 2px; border: 0; }
+    .on-dark { color: rgba(255,255,255,.92); }
+    .soft-hr { background: rgba(17,24,39,.35); height:2px; border:0; }
   </style>
 </head>
 
 <body>
+  <!-- HEADER -->
+  <nav class="navbar is-viridis" role="navigation" aria-label="main navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html"><strong>FitMeal</strong></a>
 
-<!-- NAVBAR -->
-<nav class="navbar has-background-success-light" role="navigation" aria-label="main navigation">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#top">
-        <strong>FitMeal</strong>
-      </a>
-
-      <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navMenu" class="navbar-menu">
-      <div class="navbar-end">
-        <a class="navbar-item" href="#about">О сервисе</a>
-        <a class="navbar-item" href="#plans">Рационы</a>
-        <a class="navbar-item" href="#reviews">Отзывы</a>
-        <a class="navbar-item" href="#contact">Контакты</a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </a>
       </div>
-    </div>
-  </div>
-</nav>
 
-<!-- HERO -->
-<section id="top" class="section">
-  <div class="container">
-    <div class="columns is-vcentered is-variable is-6">
-
-      <div class="column is-6">
-        <h1 class="title is-1 mb-4">
-          Здоровое питание<br>с доставкой
-        </h1>
-
-        <p class="subtitle is-5 has-text-grey-dark">
-          Готовые рационы на каждый день. Вкусно, полезно и без готовки.
-        </p>
-
-        <div class="buttons">
-          <a href="#contact" class="button is-success is-medium">Заказать питание</a>
-          <a href="#plans" class="button is-success is-light is-medium">Посмотреть меню</a>
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item is-active" href="index.html">Главная</a>
+          <a class="navbar-item" href="contacts.html">Контакты</a>
+          <a class="navbar-item" href="faq.html">FAQ</a>
         </div>
       </div>
+    </div>
+  </nav>
 
-      <!-- Реклама подписки (плашка как на твоём макете) -->
-      <div class="column is-6">
-        <div class="subscription-ad" aria-label="Реклама подписки">
-          <div style="width:100%; position:relative; z-index:1;">
-            <p class="title is-4 has-text-white mb-2">Подписка «Баланс»</p>
-            <p class="has-text-white-bis mb-4">
-              5 приёмов пищи в день · 1600–2000 ккал<br>
-              Подходит для поддержания формы
-            </p>
-            <a href="#plans" class="button is-light is-rounded is-fullwidth">
-              Подробнее о подписке
-            </a>
+  <!-- HERO -->
+  <section class="section hero-band">
+    <div class="container">
+      <div class="columns is-vcentered is-variable is-6">
+        <div class="column is-6">
+          <h1 class="title is-1 mb-4">Здоровое питание<br>с доставкой</h1>
+          <p class="subtitle is-5 has-text-grey-dark">
+            Рационы на день и неделю. Мы готовим — вы экономите время.
+          </p>
+
+          <div class="buttons">
+            <a class="button is-success is-medium" href="contacts.html#form">Оставить заявку</a>
+            <a class="button is-success is-light is-medium" href="faq.html">Как это работает</a>
           </div>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="section about-dark">
-  <div class="container">
-    <div class="columns is-vcentered is-variable is-6">
-      <div class="column is-6">
-        <h2 class="title is-2 on-dark-title">О сервисе</h2>
-        <p class="on-dark-text">
-          Мы готовим полезные блюда из свежих продуктов и доставляем их каждый день.
-          В рационе нет сахара, консервантов и вредных добавок.
-        </p>
-      </div>
-
-      <div class="column is-6">
-        <div class="about-media" aria-label="Фото/видео о сервисе (заглушка)"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS -->
-<section id="plans" class="section plans-strip">
-  <div class="container">
-    <h2 class="title is-3 mb-5">Рационы питания</h2>
-    <p class="subtitle is-6">Выберите план под цель и калорийность.</p>
-
-    <div class="columns is-variable is-4">
-      <div class="column">
-        <div class="box round">
-          <p class="title is-5">Баланс</p>
-          <p class="subtitle is-7">Универсальный рацион (1600–2000 ккал)</p>
-          <a href="#contact" class="button is-success is-fullwidth">Выбрать</a>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box round">
-          <p class="title is-5">Фитнес</p>
-          <p class="subtitle is-7">Для активного образа жизни (2000–2500 ккал)</p>
-          <a href="#contact" class="button is-success is-fullwidth">Выбрать</a>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box round">
-          <p class="title is-5">Веган</p>
-          <p class="subtitle is-7">Без продуктов животного происхождения</p>
-          <a href="#contact" class="button is-success is-fullwidth">Выбрать</a>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="box round">
-          <p class="title is-5">Кето</p>
-          <p class="subtitle is-7">Низкоуглеводный рацион (1600–2200 ккал)</p>
-          <a href="#contact" class="button is-success is-fullwidth">Выбрать</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section id="reviews" class="section reviews-strip">
-  <div class="container">
-    <h2 class="title is-3 mb-5">Отзывы клиентов</h2>
-
-    <div class="columns is-variable is-4">
-      <div class="column">
-        <div class="box round">
-          <p class="title is-6">Алина</p>
-          <p class="is-size-7">Очень удобно: не готовлю, а питание сбалансированное.</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box round">
-          <p class="title is-6">Илья</p>
-          <p class="is-size-7">Меню разнообразное, перестал заказывать фастфуд.</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="box round">
-          <p class="title is-6">Мария</p>
-          <p class="is-size-7">Доставка вовремя, состав блюд понятный.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section footer-cta">
-  <div class="container">
-    <div class="columns is-vcentered is-variable is-6">
-      <div class="column is-6">
-        <h2 class="title is-3">Заказать звонок</h2>
-        <p class="has-text-grey-dark">
-          Оставьте имя и телефон — мы перезвоним и поможем выбрать подходящий рацион.
-        </p>
-      </div>
-
-      <div class="column is-6">
-        <div class="box round">
-          <div class="field">
-            <label class="label">Имя</label>
-            <input class="input" type="text" placeholder="Анна" required>
+        <div class="column is-6">
+          <div class="subscription-ad" aria-label="Реклама подписки">
+            <div style="width:100%; position:relative; z-index:1;">
+              <p class="title is-4 has-text-white mb-2">Подписка «Баланс»</p>
+              <p class="on-dark mb-4">
+                5 приёмов пищи в день · 1600–2000 ккал<br>
+                Подходит для поддержания формы
+              </p>
+              <a href="faq.html" class="button is-light is-rounded is-fullwidth">
+                Подробнее
+              </a>
+            </div>
           </div>
+        </div>
 
-          <div class="field">
-            <label class="label">Телефон</label>
-            <input class="input" type="tel" placeholder="+7 (___) ___-__-__" required>
-          </div>
+      </div>
+    </div>
+  </section>
 
-          <button class="button is-success is-fullwidth" type="button">
-            Отправить заявку
-          </button>
-
-          <p class="is-size-7 has-text-grey-dark mt-3">
-            Нажимая «Отправить заявку», вы соглашаетесь на обработку данных (демо).
+  <!-- ABOUT -->
+  <section class="section about-band">
+    <div class="container">
+      <div class="columns is-vcentered is-variable is-6">
+        <div class="column is-6">
+          <h2 class="title is-2 has-text-white">О сервисе</h2>
+          <p class="on-dark">
+            Готовим из свежих продуктов и доставляем каждый день.
+            Можно выбрать рацион по цели и калорийности.
           </p>
         </div>
+
+        <div class="column is-6">
+          <div class="about-media" aria-label="Фото/видео (заглушка)"></div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <hr class="soft-hr">
+  <!-- PLANS -->
+  <section class="section plans-band">
+    <div class="container">
+      <h2 class="title is-3 mb-5">Рационы</h2>
+      <p class="subtitle is-6">Выберите план и оставьте заявку.</p>
 
-    <p class="is-size-7 has-text-grey-dark">
-      <strong>FitMeal</strong> · +7 (900) 000-00-00 · hello@fitmeal.ru
-    </p>
-  </div>
-</section>
+      <div class="columns is-variable is-4">
+        <div class="column">
+          <div class="box round">
+            <p class="title is-5">Баланс</p>
+            <p class="subtitle is-7">Универсальный рацион (1600–2000 ккал)</p>
+            <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
+          </div>
+        </div>
 
-<!-- Burger -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.querySelector(".navbar-burger");
-    const menu = document.getElementById("navMenu");
-    if (!burger || !menu) return;
-    burger.addEventListener("click", () => {
-      burger.classList.toggle("is-active");
-      menu.classList.toggle("is-active");
+        <div class="column">
+          <div class="box round">
+            <p class="title is-5">Фитнес</p>
+            <p class="subtitle is-7">Для активного образа жизни (2000–2500 ккал)</p>
+            <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box round">
+            <p class="title is-5">Веган</p>
+            <p class="subtitle is-7">Без продуктов животного происхождения</p>
+            <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="box round">
+            <p class="title is-5">Кето</p>
+            <p class="subtitle is-7">Низкоуглеводный рацион (1600–2200 ккал)</p>
+            <a class="button is-success is-fullwidth" href="contacts.html#form">Выбрать</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews-band">
+    <div class="container">
+      <h2 class="title is-3 has-text-white mb-5">Отзывы</h2>
+
+      <div class="columns is-variable is-4">
+        <div class="column">
+          <div class="box round">
+            <p class="title is-6">Алина</p>
+            <p class="is-size-7">«Очень удобно: питание готово, а вкус — отличный.»</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box round">
+            <p class="title is-6">Илья</p>
+            <p class="is-size-7">«Меню разнообразное, перестал заказывать фастфуд.»</p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box round">
+            <p class="title is-6">Мария</p>
+            <p class="is-size-7">«Доставка вовремя, состав блюд понятный.»</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="button is-light is-rounded" href="contacts.html#reviews">Перейти к отзывам</a>
+    </div>
+  </section>
+
+  <!-- CTA / FOOTER -->
+  <section class="section cta-band">
+    <div class="container">
+      <div class="columns is-vcentered is-variable is-6">
+        <div class="column is-6">
+          <h2 class="title is-3">Заказать звонок</h2>
+          <p class="has-text-grey-dark">
+            Оставьте контакты — мы поможем выбрать рацион и время доставки.
+          </p>
+        </div>
+
+        <div class="column is-6">
+          <div class="box round">
+            <p class="title is-6">Быстрая навигация</p>
+            <div class="buttons">
+              <a class="button is-success" href="contacts.html#form">Форма</a>
+              <a class="button is-success is-light" href="faq.html">FAQ</a>
+            </div>
+            <p class="has-text-grey-dark mt-3">
+              Тел: +7 (900) 000-00-00<br>
+              Email: hello@fitmeal.ru
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="soft-hr">
+      <p class="is-size-7 has-text-grey-dark">
+        <strong>FitMeal</strong> · <a href="index.html">Главная</a> · <a href="contacts.html">Контакты</a> · <a href="faq.html">FAQ</a>
+      </p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const burger = document.querySelector(".navbar-burger");
+      const menu = document.getElementById(burger?.dataset.target);
+      if (!burger || !menu) return;
+      burger.addEventListener("click", () => {
+        burger.classList.toggle("is-active");
+        menu.classList.toggle("is-active");
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
